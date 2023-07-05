@@ -1,0 +1,29 @@
+<canvas width="600" height="400"></canvas> <!--tela em  branco-->
+
+<script>
+    
+    var tela = document.querySelector("canvas"); 
+    var pincel = tela.getContext("2d");
+
+    pincel.fillStyle = "lightgray"; //fillStyle é uma propriedade que podemos atribuir
+    pincel.fillRect(0, 0, 600, 400); //fillRecty é um método que desenha um retangulo
+    
+    pincel.fillStyle = "green";
+    pincel.fillRect(0, 0, 200, 400); //vamos separar em 3 faixas
+
+    pincel.fillStyle = "red";
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = "yellow";
+    pincel.beginPath(); 
+    pincel.moveTo(300,200);
+    pincel.lineTo(200,400);
+    pincel.lineTo(400,400);
+    pincel.fill();
+
+    pincel.fillStyle = "blue";
+    pincel.beginPath();
+    pincel.arc(300, 200, 50, 0, 2 * 3.14);
+    pincel.fill();
+
+</script>

@@ -1,0 +1,25 @@
+<canvas width="600" height="400"></canvas> <!--tela em  branco-->
+
+<script>
+    
+    var tela = document.querySelector("canvas"); 
+    var pincel = tela.getContext("2d");
+
+    //Triângulo 1 - preto
+    pincel.fillStyle = "black"
+    pincel.beginPath(); //precisamos iniciar o path e depois mover o pincel
+    pincel.moveTo(50,50); //move o pincel para uma posição desejada
+    pincel.lineTo(50,400); //desenha a linha até a próxima posição
+    pincel.lineTo(400,400); //finaliza a linha do triângulo
+    pincel.fill(); //depois que todas as linhas estão desenhadas, temos que preencher 
+
+
+    //Triângulo 2 - branco
+    pincel.fillStyle = "white"
+    pincel.beginPath(); //precisamos iniciar o path e depois mover o pincel
+    pincel.moveTo(100,175); //move o pincel para uma posição desejada
+    pincel.lineTo(100,350); //desenha a linha até a próxima posição
+    pincel.lineTo(275,350); //finaliza a linha do triângulo
+    pincel.fill(); 
+
+</script>
