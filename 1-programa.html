@@ -1,0 +1,37 @@
+<!--tela em  branco-->
+<canvas width="600" height="400"></canvas> 
+
+<script>
+    
+    var tela = document.querySelector("canvas"); //pega-se o canvas
+    var pincel = tela.getContext("2d"); //criação do pincel e o contexto - 2d
+
+    //fillStyle é uma propriedade que podemos atribuir um valor
+    //deve ser definida antes do desenho
+    pincel.fillStyle = "lightgray"; 
+    //fillRecty é um método que desenha um retangulo
+    // precisa definir posição e tamanho do pincel (x,y, tamanho do x, tamanho do y)
+    pincel.fillRect(0, 0, 600, 400); 
+    
+    pincel.fillStyle = "green";
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = "red";
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = "yellow";
+    //começar um caminho para fazer um triangulo
+    pincel.beginPath(); 
+    pincel.moveTo(300,200); //vai até o meio da página
+    pincel.lineTo(200,400); //traça a linha para conectar nos pontos
+    pincel.lineTo(400,400);
+    pincel.fill();//preenche o desenho
+
+    pincel.fillStyle = "blue";
+    //começar a desenhar um circulo
+    pincel.beginPath();
+    // (x,y, raio, angulo inicial, angulo final em radianos)
+    pincel.arc(300, 200, 50, 0, 2 * 3.14);
+    pincel.fill();
+
+</script>
