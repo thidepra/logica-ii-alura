@@ -29,10 +29,11 @@
 
         for (var i = 0; i < serie.length; i++) {
             var altura = serie[i];
+            
             desenhaRetangulo(x, y + somaAltura, 50, altura, cores[i]);
+            
             somaAltura += altura;
         }
-
     }
 
     var serie2015 = [50, 25, 20, 5];
