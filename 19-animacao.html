@@ -1,0 +1,51 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    function fundoTela() {
+        pincel.fillStyle = 'lightgray';
+        pincel.fillRect(0, 0, 600, 400);
+    }
+
+    function desenhaCirculo(x, y, raio) {
+        pincel.fillStyle = "magenta";
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaTela() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    // function exibeMensagemNoConsole() {
+    //     fundoTela();
+    //     console.log("Chamei função");
+    // }
+
+    // setInterval(exibeMensagemNoConsole, 1000);
+
+    var x = 20;
+    var sentido = 1; //precisamos saber o sentido do movimento da bolinha
+
+    function atualizaTela() {
+        limpaTela();
+        fundoTela();
+
+        if (x > 600) {
+            sentido = -1; //sentido direita -> esquerda
+        } else if (x < 0) {
+            sentido = 1; //esquerda -> direita
+        }
+        
+        desenhaCirculo(x, 20, 10);
+
+        x += sentido;
+    }
+
+    setInterval(atualizaTela, 10); //função que executa uma outra função em um intervalo de tempo
+
+</script>
