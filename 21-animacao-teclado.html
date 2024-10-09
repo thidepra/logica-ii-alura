@@ -1,0 +1,56 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    function fundoTela() {
+        pincel.fillStyle = 'purple';
+        pincel.fillRect(0, 0, 600, 400);
+    }
+
+    var x = 300;
+    var y = 200;
+    //códigos do teclado
+    var cima = 38;
+    var baixo = 40;
+    var direita = 39;
+    var esquerda = 37;
+    //taxa de incremento
+    var taxa = 10;
+
+    function desenhaCirculo(x, y, raio) {
+        pincel.fillStyle = 'lightblue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaTela() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    function atualizaTela() {
+        limpaTela();
+        fundoTela();
+        desenhaCirculo(x, y, 20);
+    }
+
+    //captura as arrow keys: teclas de setas
+    function leTeclado(evento) {
+        if (evento.keyCode == cima) {
+            y -= taxa;
+        } else if (evento.keyCode == baixo) {
+            y += taxa;
+        } else if (evento.keyCode == direita) {
+            x += taxa;
+        } else if (evento.keyCode == esquerda) {
+            x -= taxa;
+        }
+    }
+
+    setInterval(atualizaTela, 20);
+    document.onkeydown = leTeclado;
+
+</script>
